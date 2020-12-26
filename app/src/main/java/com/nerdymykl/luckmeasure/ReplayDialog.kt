@@ -2,6 +2,7 @@ package com.nerdymykl.luckmeasure
 
 import android.app.Dialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.ProgressBar
@@ -30,6 +31,10 @@ class ReplayDialog(val percent : Int) : DialogFragment() {
                 .setNegativeButton(android.R.string.cancel,
                         DialogInterface.OnClickListener { dialog, id ->
                             // User cancelled the dialog
+                            val intent = Intent(requireActivity(), MainActivity::class.java)
+                            startActivity(intent)
+                            requireActivity().finish()
+
                         })
         return builder.create()
     }

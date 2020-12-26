@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
     fun goToMeasureActivity(view: View) {
         val intent = Intent(this, MeasureLuckActivity::class.java)
         startActivity(intent)
+        this.finish()
     }
 
 }

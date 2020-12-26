@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import com.google.android.material.button.MaterialButton
 
 class MeasureLuckActivity : AppCompatActivity() {
 
@@ -18,16 +19,16 @@ class MeasureLuckActivity : AppCompatActivity() {
     private lateinit var giftBox : ImageView
     private var count : Int = 0
     private var gameover : Boolean = false
-    private lateinit var oneTV : TextView
-    private lateinit var twoTV : TextView
-    private lateinit var threeTV : TextView
-    private lateinit var fourTV : TextView
-    private lateinit var fiveTV : TextView
-    private lateinit var sixTV : TextView
-    private lateinit var sevenTV : TextView
-    private lateinit var eightTV : TextView
-    private lateinit var nineTV : TextView
-    private lateinit var zeroTV : TextView
+    private lateinit var oneTV : MaterialButton
+    private lateinit var twoTV : MaterialButton
+    private lateinit var threeTV : MaterialButton
+    private lateinit var fourTV : MaterialButton
+    private lateinit var fiveTV : MaterialButton
+    private lateinit var sixTV : MaterialButton
+    private lateinit var sevenTV : MaterialButton
+    private lateinit var eightTV : MaterialButton
+    private lateinit var nineTV : MaterialButton
+    private lateinit var zeroTV : MaterialButton
     private lateinit var randomNumberTextView : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +66,7 @@ class MeasureLuckActivity : AppCompatActivity() {
 
     private fun animateGiftBox(){
         giftBox.visibility = View.VISIBLE
-        yoYoString = YoYo.with(Techniques.Wobble)
+        YoYo.with(Techniques.Pulse)
             .duration(1000)
             .repeat(YoYo.INFINITE)
             .pivot(YoYo.CENTER_PIVOT, YoYo.CENTER_PIVOT)
@@ -119,8 +120,7 @@ class MeasureLuckActivity : AppCompatActivity() {
         if(chosen == randomNumber){
             giftBox.visibility = View.GONE
             randomNumberTextView.visibility = View.VISIBLE
-            Toast.makeText(this, "Yaay!!!", Toast.LENGTH_SHORT).show()
-            yoYoString = YoYo.with(Techniques.Pulse)
+            YoYo.with(Techniques.Pulse)
                     .duration(1000)
                     .repeat(YoYo.INFINITE)
                     .pivot(YoYo.CENTER_PIVOT, YoYo.CENTER_PIVOT)
@@ -129,8 +129,7 @@ class MeasureLuckActivity : AppCompatActivity() {
             setGameOver()
         } else {
             textView.isEnabled = false
-            textView.setTextColor(this.resources.getColor(R.color.grey))
-            //Toast.makeText(this, "Wrong!!!", Toast.LENGTH_SHORT).show()
+            textView.setTextColor(this.resources.getColor(R.color.primaryTextColor))
             percent--
             if(count == 10){
                 showReplayDialog(percent)
@@ -149,17 +148,17 @@ class MeasureLuckActivity : AppCompatActivity() {
         gameover = true
     }
 
-    public fun resetGame(){
-        oneTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        twoTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        threeTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        fourTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        fiveTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        sixTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        sevenTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        eightTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        nineTV.setTextColor(this.resources.getColor(R.color.purple_200))
-        zeroTV.setTextColor(this.resources.getColor(R.color.purple_200))
+    fun resetGame(){
+        oneTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        twoTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        threeTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        fourTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        fiveTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        sixTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        sevenTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        eightTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        nineTV.setTextColor(this.resources.getColor(R.color.primaryColor))
+        zeroTV.setTextColor(this.resources.getColor(R.color.primaryColor))
         oneTV.isEnabled = true
         twoTV.isEnabled = true
         threeTV.isEnabled = true
